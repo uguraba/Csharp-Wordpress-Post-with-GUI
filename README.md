@@ -45,5 +45,4 @@
 
 # 6. Changelog
 
-  v0.2 - Added multiple send function
-  v0.1 - Initial Commit
+  v0.1 - Initial Commit, Added multiple send function
