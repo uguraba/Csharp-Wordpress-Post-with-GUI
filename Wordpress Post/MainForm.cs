@@ -23,12 +23,6 @@ namespace Wordpress_Post
         #region Wordpress
         public postInfo _blogPost;
 
-        /*public struct customField
-        {
-            public string key;
-            public string value;
-        }*/
-
         public struct postInfo
         {
             public string[] categories;
@@ -185,34 +179,48 @@ namespace Wordpress_Post
             cmbbxComment.SelectedIndex = 0;
             txtCategory.Clear();
             txtTag.Clear();
+            dtp.Value = DateTime.Now;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             if (dgvWordpressInformationSettings.RowCount > 0)
             {
-                setPost(txtTitle.Text, txtContent.Text, cmbbxComment.Text, txtCategory.Text, txtTag.Text, dtp.Value, cmbbxPing.Text);
-                chcbxAgreement.Checked = false;
-                menuReport.PerformClick();
-                Application.DoEvents();
-                foreach (DataGridViewRow _row in dgvWordpressInformationSettings.Rows)
+                if(!String.IsNullOrEmpty(txtTitle.Text) & !String.IsNullOrEmpty(txtContent.Text) & !String.IsNullOrEmpty(txtCategory.Text))
+                { 
+                    setPost(txtTitle.Text, txtContent.Text, cmbbxComment.Text, txtCategory.Text, txtTag.Text, dtp.Value, cmbbxPing.Text);
+                    chcbxAgreement.Checked = false;
+                    menuReport.PerformClick();
+                    Application.DoEvents();
+                    int _index = 0;
+                    foreach (DataGridViewRow _row in dgvWordpressInformationSettings.Rows)
+                    {
+                        // This if condition is checking that url is selected or not (In or Out)
+                        if(dgvSendPost.Rows[_index].Cells[0].Value.ToString() == "In")
+                        { 
+                            //I know without creating above three line, can do this but on that way the code is not readable.
+                            string _url = _row.Cells["dgvSettingstxtURL"].Value.ToString();
+                            string _username = _row.Cells["dgvSettingstxtUsername"].Value.ToString();
+                            string _password = _row.Cells["dgvSettingstxtPassword"].Value.ToString();
+                            dgvResult.Rows.Add();
+                            dgvResult.Rows[dgvResult.RowCount - 1].Cells[0].Value = _url;
+                            string _result = sendPost(_url, _username, _password);
+                            if (_result != "Error")
+                            {
+                                dgvResult.Rows[dgvResult.RowCount - 1].Cells[1].Value = "http://" + _url + "/?p=" + _result;
+                                dgvResult.Rows[dgvResult.RowCount - 1].Cells[2].Value = "Success.";
+                            }
+                            else
+                            {
+                                dgvResult.Rows[dgvResult.RowCount - 1].Cells[2].Value = "Failed.";
+                            }
+                        }
+                        _index++;
+                    }
+                }
+                else
                 {
-                    //I know without creating above three line, can do this but on that way the code is not readable.
-                    string _url = _row.Cells["dgvSettingstxtURL"].Value.ToString();
-                    string _username = _row.Cells["dgvSettingstxtUsername"].Value.ToString();
-                    string _password = _row.Cells["dgvSettingstxtPassword"].Value.ToString();
-                    dgvResult.Rows.Add();
-                    dgvResult.Rows[dgvResult.RowCount - 1].Cells[0].Value = _url;
-                    string _result = sendPost(_url, _username, _password);
-                    if (_result != "Error")
-                    {
-                        dgvResult.Rows[dgvResult.RowCount - 1].Cells[1].Value = "http://" + _url + "/?p=" + _result;
-                        dgvResult.Rows[dgvResult.RowCount - 1].Cells[2].Value = "Success.";
-                    }
-                    else
-                    {
-                        dgvResult.Rows[dgvResult.RowCount - 1].Cells[2].Value = "Failed.";
-                    }
+                    MessageBox.Show("Title, content or category is missing.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -223,7 +231,31 @@ namespace Wordpress_Post
 
         private void btnPostBrowse_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog _fileDialog = new OpenFileDialog();
+            _fileDialog.Filter = "Text File |*.txt";
+            _fileDialog.Title = "Wordpress Post";
+            if (_fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader _read;
+                _read = File.OpenText(_fileDialog.FileName);
+                txtTitle.Text = _read.ReadLine(); //First line is title.
+                txtCategory.Text = _read.ReadLine(); //Second line is category.
+                txtTag.Text = _read.ReadLine(); //Third line is tag.
+                cmbbxPing.Text = _read.ReadLine(); //Fourth line is ping. String will be only Open or Closed
+                cmbbxComment.Text = _read.ReadLine(); //Fifth line is comment. String will be only Open or Closed
+                dtp.Text = _read.ReadLine(); //Sixth line is publish date.
+                string _content = "", _line;
+                while ((_line = _read.ReadLine()) != null)
+                {
+                    _content += _line + Environment.NewLine; //Receiving content line by line.
+                }
+                txtContent.Text = _content;
+                _read.Close();
+            }
+            else
+            {
+                MessageBox.Show("Didn't select any text file.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void chcbxAgreement_CheckedChanged(object sender, EventArgs e)
@@ -236,32 +268,85 @@ namespace Wordpress_Post
         #endregion
 
         #region ReportSectionComponents
-        private void btnShowDetail_Click(object sender, EventArgs e)
+        private void btnStatistics_Click(object sender, EventArgs e)
         {
-
+            if(dgvResult.RowCount > 0)
+            { 
+                int _success = 0, _failed = 0;
+                foreach (DataGridViewRow _row in dgvResult.Rows)
+                {
+                    string _result = _row.Cells["dgvResulttxtResult"].Value.ToString();
+                    if (_result == "Success.")
+                        _success++;
+                    else
+                        _failed++;
+                }
+                MessageBox.Show(string.Format("Statistics for: {0}\nSuccess: {1}\nFailed: {2}", txtTitle.Text, _success.ToString(), _failed.ToString()), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Result list is already empty.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
-
         private void btnSaveToTxt_Click(object sender, EventArgs e)
         {
-
+            if (dgvResult.RowCount > 0)
+            {
+                SaveFileDialog _saveDialog = new SaveFileDialog();
+                _saveDialog.Filter = "Text File |*.txt";
+                _saveDialog.OverwritePrompt = true;
+                _saveDialog.CreatePrompt = true;
+                if (_saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter _writer = new StreamWriter(_saveDialog.FileName);
+                    string _line;
+                    foreach (DataGridViewRow _row in dgvResult.Rows)
+                    {
+                        _line = _row.Cells["dgvResulttxtURL"].Value.ToString() + " " + _row.Cells["dgvResulttxtPostURL"].Value.ToString() + " " + _row.Cells["dgvResulttxtResult"].Value.ToString();
+                        _writer.WriteLine(_line);
+                    }
+                    _writer.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Result list is already empty.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-            string _mailBody = "";
-            foreach (DataGridViewRow _row in dgvResult.Rows)
+            if(dgvResult.RowCount > 0)
             {
-                string _url = _row.Cells["dgvResulttxtURL"].Value.ToString();
-                string _postUrl = _row.Cells["dgvResulttxtPostURL"].Value.ToString();
-                string _result = _row.Cells["dgvResulttxtResult"].Value.ToString();
-                _mailBody += _url + " " + _postUrl + " " + _result + "\n";
+                string _mailBody = "";
+                foreach (DataGridViewRow _row in dgvResult.Rows)
+                {
+                    string _url = _row.Cells["dgvResulttxtURL"].Value.ToString();
+                    string _postUrl = _row.Cells["dgvResulttxtPostURL"].Value.ToString();
+                    string _result = _row.Cells["dgvResulttxtResult"].Value.ToString();
+                    _mailBody += _url + " " + _postUrl + " " + _result + "\n";
+                }
+                if ((!string.IsNullOrEmpty(txtSendMail.Text)))
+                { 
+                    try
+                    { 
+                        Mail.sendMail("csharpwordpresspost@gmail.com", "wordpressmailpassword", "C# Wordpress Application Report", txtSendMail.Text, _mailBody);
+                        MessageBox.Show("Result list is sent your mail.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Result list is not sent your mail.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email is missing.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            Mail.sendMail("ugur.aba@outlook.com", _mailBody);
-        }
-
-        private void btnGoogleDrive_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("Result list is already empty.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
 
@@ -305,6 +390,8 @@ namespace Wordpress_Post
             grpbxWordpressInformation.Visible = false;
             grpbxReport.Visible = false;
             grpbxSendPost.Visible = true;
+            dgvSendPost.Rows.Clear();
+            dgvSendPost.Refresh();
             foreach (DataGridViewRow _row in dgvWordpressInformationSettings.Rows)
             {
                 dgvSendPost.Rows.Add();

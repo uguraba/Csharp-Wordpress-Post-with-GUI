@@ -78,17 +78,14 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.grpbxReport = new System.Windows.Forms.GroupBox();
             this.grpbxReportOptions = new System.Windows.Forms.GroupBox();
-            this.btnGoogleDrive = new System.Windows.Forms.Button();
             this.btnSaveToTxt = new System.Windows.Forms.Button();
-            this.btnShowDetail = new System.Windows.Forms.Button();
+            this.btnStatistics = new System.Windows.Forms.Button();
             this.btnSendMail = new System.Windows.Forms.Button();
             this.grpbxWordpressInformationResult = new System.Windows.Forms.GroupBox();
             this.dgvResult = new System.Windows.Forms.DataGridView();
             this.dgvResulttxtURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResulttxtPostURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResulttxtResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpbxProgress = new System.Windows.Forms.GroupBox();
-            this.prgbr = new System.Windows.Forms.ProgressBar();
             this.grpbxWordpressInformation = new System.Windows.Forms.GroupBox();
             this.btnBrowseWordpressList = new System.Windows.Forms.Button();
             this.grpbxWordpressInformationSettings = new System.Windows.Forms.GroupBox();
@@ -106,6 +103,7 @@
             this.lblURL = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtSendMail = new System.Windows.Forms.TextBox();
             this.tbllpnlMain.SuspendLayout();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxWordpressLogo)).BeginInit();
@@ -124,7 +122,6 @@
             this.grpbxReportOptions.SuspendLayout();
             this.grpbxWordpressInformationResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
-            this.grpbxProgress.SuspendLayout();
             this.grpbxWordpressInformation.SuspendLayout();
             this.grpbxWordpressInformationSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationSettings)).BeginInit();
@@ -137,7 +134,7 @@
             this.tbllpnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tbllpnlMain.Controls.Add(this.pnlTop, 0, 0);
             this.tbllpnlMain.Controls.Add(this.pnlBottom, 0, 1);
-            this.tbllpnlMain.Location = new System.Drawing.Point(0, 0);
+            this.tbllpnlMain.Location = new System.Drawing.Point(-2, -2);
             this.tbllpnlMain.Name = "tbllpnlMain";
             this.tbllpnlMain.RowCount = 2;
             this.tbllpnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 135F));
@@ -231,9 +228,9 @@
             // 
             // grpbxMain
             // 
+            this.grpbxMain.Controls.Add(this.grpbxReport);
             this.grpbxMain.Controls.Add(this.grpbxAbout);
             this.grpbxMain.Controls.Add(this.grpbxSendPost);
-            this.grpbxMain.Controls.Add(this.grpbxReport);
             this.grpbxMain.Controls.Add(this.grpbxWordpressInformation);
             this.grpbxMain.Location = new System.Drawing.Point(14, 3);
             this.grpbxMain.Name = "grpbxMain";
@@ -437,8 +434,8 @@
             // 
             // dtp
             // 
-            this.dtp.CustomFormat = "dd.MM.yyyy hh:mm";
-            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp.CustomFormat = "dd.MM.yyyy HH:mm";
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp.Location = new System.Drawing.Point(83, 295);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(386, 20);
@@ -616,7 +613,6 @@
             // 
             this.grpbxReport.Controls.Add(this.grpbxReportOptions);
             this.grpbxReport.Controls.Add(this.grpbxWordpressInformationResult);
-            this.grpbxReport.Controls.Add(this.grpbxProgress);
             this.grpbxReport.Location = new System.Drawing.Point(7, 9);
             this.grpbxReport.Name = "grpbxReport";
             this.grpbxReport.Size = new System.Drawing.Size(1017, 523);
@@ -626,29 +622,16 @@
             // 
             // grpbxReportOptions
             // 
-            this.grpbxReportOptions.Controls.Add(this.btnGoogleDrive);
+            this.grpbxReportOptions.Controls.Add(this.txtSendMail);
             this.grpbxReportOptions.Controls.Add(this.btnSaveToTxt);
-            this.grpbxReportOptions.Controls.Add(this.btnShowDetail);
+            this.grpbxReportOptions.Controls.Add(this.btnStatistics);
             this.grpbxReportOptions.Controls.Add(this.btnSendMail);
-            this.grpbxReportOptions.Location = new System.Drawing.Point(462, 445);
+            this.grpbxReportOptions.Location = new System.Drawing.Point(6, 442);
             this.grpbxReportOptions.Name = "grpbxReportOptions";
-            this.grpbxReportOptions.Size = new System.Drawing.Size(546, 72);
+            this.grpbxReportOptions.Size = new System.Drawing.Size(637, 72);
             this.grpbxReportOptions.TabIndex = 2;
             this.grpbxReportOptions.TabStop = false;
             this.grpbxReportOptions.Text = "Report Options";
-            // 
-            // btnGoogleDrive
-            // 
-            this.btnGoogleDrive.Image = global::Wordpress_Post.Properties.Resources.google_drive_logo;
-            this.btnGoogleDrive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoogleDrive.Location = new System.Drawing.Point(411, 19);
-            this.btnGoogleDrive.Name = "btnGoogleDrive";
-            this.btnGoogleDrive.Size = new System.Drawing.Size(129, 43);
-            this.btnGoogleDrive.TabIndex = 12;
-            this.btnGoogleDrive.Text = "Google Drive";
-            this.btnGoogleDrive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGoogleDrive.UseVisualStyleBackColor = true;
-            this.btnGoogleDrive.Click += new System.EventHandler(this.btnGoogleDrive_Click);
             // 
             // btnSaveToTxt
             // 
@@ -663,18 +646,18 @@
             this.btnSaveToTxt.UseVisualStyleBackColor = true;
             this.btnSaveToTxt.Click += new System.EventHandler(this.btnSaveToTxt_Click);
             // 
-            // btnShowDetail
+            // btnStatistics
             // 
-            this.btnShowDetail.Image = global::Wordpress_Post.Properties.Resources.detail_button;
-            this.btnShowDetail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowDetail.Location = new System.Drawing.Point(6, 19);
-            this.btnShowDetail.Name = "btnShowDetail";
-            this.btnShowDetail.Size = new System.Drawing.Size(129, 43);
-            this.btnShowDetail.TabIndex = 9;
-            this.btnShowDetail.Text = "Show Detail";
-            this.btnShowDetail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnShowDetail.UseVisualStyleBackColor = true;
-            this.btnShowDetail.Click += new System.EventHandler(this.btnShowDetail_Click);
+            this.btnStatistics.Image = global::Wordpress_Post.Properties.Resources.detail_button;
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(6, 19);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Size = new System.Drawing.Size(129, 43);
+            this.btnStatistics.TabIndex = 9;
+            this.btnStatistics.Text = "Statictics";
+            this.btnStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStatistics.UseVisualStyleBackColor = true;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnSendMail
             // 
@@ -682,7 +665,7 @@
             this.btnSendMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSendMail.Location = new System.Drawing.Point(276, 19);
             this.btnSendMail.Name = "btnSendMail";
-            this.btnSendMail.Size = new System.Drawing.Size(129, 43);
+            this.btnSendMail.Size = new System.Drawing.Size(355, 43);
             this.btnSendMail.TabIndex = 8;
             this.btnSendMail.Text = "Send Mail";
             this.btnSendMail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -737,23 +720,6 @@
             this.dgvResulttxtResult.HeaderText = "Result";
             this.dgvResulttxtResult.Name = "dgvResulttxtResult";
             this.dgvResulttxtResult.ReadOnly = true;
-            // 
-            // grpbxProgress
-            // 
-            this.grpbxProgress.Controls.Add(this.prgbr);
-            this.grpbxProgress.Location = new System.Drawing.Point(6, 445);
-            this.grpbxProgress.Name = "grpbxProgress";
-            this.grpbxProgress.Size = new System.Drawing.Size(450, 72);
-            this.grpbxProgress.TabIndex = 1;
-            this.grpbxProgress.TabStop = false;
-            this.grpbxProgress.Text = "Progress";
-            // 
-            // prgbr
-            // 
-            this.prgbr.Location = new System.Drawing.Point(6, 19);
-            this.prgbr.Name = "prgbr";
-            this.prgbr.Size = new System.Drawing.Size(438, 43);
-            this.prgbr.TabIndex = 0;
             // 
             // grpbxWordpressInformation
             // 
@@ -933,12 +899,19 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // txtSendMail
+            // 
+            this.txtSendMail.Location = new System.Drawing.Point(322, 31);
+            this.txtSendMail.Name = "txtSendMail";
+            this.txtSendMail.Size = new System.Drawing.Size(246, 20);
+            this.txtSendMail.TabIndex = 19;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1058, 691);
+            this.ClientSize = new System.Drawing.Size(1053, 691);
             this.Controls.Add(this.tbllpnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
@@ -968,9 +941,9 @@
             this.grpbxPostInformation.PerformLayout();
             this.grpbxReport.ResumeLayout(false);
             this.grpbxReportOptions.ResumeLayout(false);
+            this.grpbxReportOptions.PerformLayout();
             this.grpbxWordpressInformationResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
-            this.grpbxProgress.ResumeLayout(false);
             this.grpbxWordpressInformation.ResumeLayout(false);
             this.grpbxWordpressInformationSettings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationSettings)).EndInit();
@@ -1034,17 +1007,14 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.GroupBox grpbxReport;
         private System.Windows.Forms.GroupBox grpbxReportOptions;
-        private System.Windows.Forms.Button btnGoogleDrive;
         private System.Windows.Forms.Button btnSaveToTxt;
-        private System.Windows.Forms.Button btnShowDetail;
+        private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button btnSendMail;
         private System.Windows.Forms.GroupBox grpbxWordpressInformationResult;
         private System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResulttxtURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResulttxtPostURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResulttxtResult;
-        private System.Windows.Forms.GroupBox grpbxProgress;
-        private System.Windows.Forms.ProgressBar prgbr;
         private System.Windows.Forms.GroupBox grpbxAbout;
         private System.Windows.Forms.GroupBox grpbxApplicationInformation;
         private System.Windows.Forms.PictureBox pctrbxAbout;
@@ -1058,6 +1028,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuSelectAll;
         private System.Windows.Forms.ToolStripMenuItem menuUnselect;
         private System.Windows.Forms.ToolStripMenuItem menuUnselectAll;
+        private System.Windows.Forms.TextBox txtSendMail;
     }
 }
 
