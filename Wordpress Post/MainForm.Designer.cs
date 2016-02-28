@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tbllpnlMain = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTop = new System.Windows.Forms.Panel();
@@ -46,28 +47,22 @@
             this.btnTwitter = new System.Windows.Forms.Button();
             this.btnGithub = new System.Windows.Forms.Button();
             this.btnGNULicence = new System.Windows.Forms.Button();
-            this.grpbxReport = new System.Windows.Forms.GroupBox();
-            this.grpbxReportOptions = new System.Windows.Forms.GroupBox();
-            this.btnGoogleDrive = new System.Windows.Forms.Button();
-            this.btnSaveToTxt = new System.Windows.Forms.Button();
-            this.btnShowDetail = new System.Windows.Forms.Button();
-            this.btnSendMail = new System.Windows.Forms.Button();
-            this.grpbxWordpressInformationResult = new System.Windows.Forms.GroupBox();
-            this.dgvResult = new System.Windows.Forms.DataGridView();
-            this.dgvResulttxtURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResulttxtPostURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResulttxtResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpbxProgress = new System.Windows.Forms.GroupBox();
-            this.prgbr = new System.Windows.Forms.ProgressBar();
             this.grpbxSendPost = new System.Windows.Forms.GroupBox();
             this.grpbxWordpressInformationSendPost = new System.Windows.Forms.GroupBox();
-            this.dgvWordpressInformationResult = new System.Windows.Forms.DataGridView();
+            this.dgvSendPost = new System.Windows.Forms.DataGridView();
             this.dgvSendPosttxtInclude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSendPosttxtURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuSelect = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUnselect = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUnselectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.grpbxPostInformation = new System.Windows.Forms.GroupBox();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.lblPublishDate = new System.Windows.Forms.Label();
+            this.cmbbxPing = new System.Windows.Forms.ComboBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.txtTag = new System.Windows.Forms.TextBox();
-            this.cmbbxPing = new System.Windows.Forms.ComboBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.lblPing = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
@@ -81,6 +76,19 @@
             this.btnPostBrowse = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.grpbxReport = new System.Windows.Forms.GroupBox();
+            this.grpbxReportOptions = new System.Windows.Forms.GroupBox();
+            this.btnGoogleDrive = new System.Windows.Forms.Button();
+            this.btnSaveToTxt = new System.Windows.Forms.Button();
+            this.btnShowDetail = new System.Windows.Forms.Button();
+            this.btnSendMail = new System.Windows.Forms.Button();
+            this.grpbxWordpressInformationResult = new System.Windows.Forms.GroupBox();
+            this.dgvResult = new System.Windows.Forms.DataGridView();
+            this.dgvResulttxtURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResulttxtPostURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResulttxtResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpbxProgress = new System.Windows.Forms.GroupBox();
+            this.prgbr = new System.Windows.Forms.ProgressBar();
             this.grpbxWordpressInformation = new System.Windows.Forms.GroupBox();
             this.btnBrowseWordpressList = new System.Windows.Forms.Button();
             this.grpbxWordpressInformationSettings = new System.Windows.Forms.GroupBox();
@@ -98,8 +106,6 @@
             this.lblURL = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lblPublishDate = new System.Windows.Forms.Label();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.tbllpnlMain.SuspendLayout();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxWordpressLogo)).BeginInit();
@@ -109,15 +115,16 @@
             this.grpbxAbout.SuspendLayout();
             this.grpbxApplicationInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxAbout)).BeginInit();
+            this.grpbxSendPost.SuspendLayout();
+            this.grpbxWordpressInformationSendPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSendPost)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
+            this.grpbxPostInformation.SuspendLayout();
             this.grpbxReport.SuspendLayout();
             this.grpbxReportOptions.SuspendLayout();
             this.grpbxWordpressInformationResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.grpbxProgress.SuspendLayout();
-            this.grpbxSendPost.SuspendLayout();
-            this.grpbxWordpressInformationSendPost.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationResult)).BeginInit();
-            this.grpbxPostInformation.SuspendLayout();
             this.grpbxWordpressInformation.SuspendLayout();
             this.grpbxWordpressInformationSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationSettings)).BeginInit();
@@ -306,6 +313,305 @@
             this.btnGNULicence.UseVisualStyleBackColor = true;
             this.btnGNULicence.Click += new System.EventHandler(this.btnGNULicence_Click);
             // 
+            // grpbxSendPost
+            // 
+            this.grpbxSendPost.Controls.Add(this.grpbxWordpressInformationSendPost);
+            this.grpbxSendPost.Controls.Add(this.grpbxPostInformation);
+            this.grpbxSendPost.Controls.Add(this.chcbxAgreement);
+            this.grpbxSendPost.Controls.Add(this.btnPostBrowse);
+            this.grpbxSendPost.Controls.Add(this.btnSend);
+            this.grpbxSendPost.Controls.Add(this.btnClear);
+            this.grpbxSendPost.Location = new System.Drawing.Point(7, 9);
+            this.grpbxSendPost.Name = "grpbxSendPost";
+            this.grpbxSendPost.Size = new System.Drawing.Size(1017, 523);
+            this.grpbxSendPost.TabIndex = 16;
+            this.grpbxSendPost.TabStop = false;
+            this.grpbxSendPost.Visible = false;
+            // 
+            // grpbxWordpressInformationSendPost
+            // 
+            this.grpbxWordpressInformationSendPost.Controls.Add(this.dgvSendPost);
+            this.grpbxWordpressInformationSendPost.Location = new System.Drawing.Point(6, 10);
+            this.grpbxWordpressInformationSendPost.Name = "grpbxWordpressInformationSendPost";
+            this.grpbxWordpressInformationSendPost.Size = new System.Drawing.Size(513, 507);
+            this.grpbxWordpressInformationSendPost.TabIndex = 3;
+            this.grpbxWordpressInformationSendPost.TabStop = false;
+            this.grpbxWordpressInformationSendPost.Text = "Wordpress Information";
+            // 
+            // dgvSendPost
+            // 
+            this.dgvSendPost.AllowUserToAddRows = false;
+            this.dgvSendPost.AllowUserToDeleteRows = false;
+            this.dgvSendPost.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSendPost.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvSendPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSendPost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSendPost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSendPosttxtInclude,
+            this.dgvSendPosttxtURL});
+            this.dgvSendPost.ContextMenuStrip = this.contextMenuStrip;
+            this.dgvSendPost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSendPost.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvSendPost.Location = new System.Drawing.Point(3, 16);
+            this.dgvSendPost.Name = "dgvSendPost";
+            this.dgvSendPost.ReadOnly = true;
+            this.dgvSendPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSendPost.Size = new System.Drawing.Size(507, 488);
+            this.dgvSendPost.TabIndex = 0;
+            // 
+            // dgvSendPosttxtInclude
+            // 
+            this.dgvSendPosttxtInclude.FillWeight = 15.22843F;
+            this.dgvSendPosttxtInclude.HeaderText = "#";
+            this.dgvSendPosttxtInclude.Name = "dgvSendPosttxtInclude";
+            this.dgvSendPosttxtInclude.ReadOnly = true;
+            this.dgvSendPosttxtInclude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dgvSendPosttxtURL
+            // 
+            this.dgvSendPosttxtURL.FillWeight = 142.3858F;
+            this.dgvSendPosttxtURL.HeaderText = "URL";
+            this.dgvSendPosttxtURL.Name = "dgvSendPosttxtURL";
+            this.dgvSendPosttxtURL.ReadOnly = true;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSelect,
+            this.menuSelectAll,
+            this.menuUnselect,
+            this.menuUnselectAll});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(137, 92);
+            // 
+            // menuSelect
+            // 
+            this.menuSelect.Name = "menuSelect";
+            this.menuSelect.Size = new System.Drawing.Size(136, 22);
+            this.menuSelect.Text = "Select";
+            this.menuSelect.Click += new System.EventHandler(this.menuSelect_Click);
+            // 
+            // menuSelectAll
+            // 
+            this.menuSelectAll.Name = "menuSelectAll";
+            this.menuSelectAll.Size = new System.Drawing.Size(136, 22);
+            this.menuSelectAll.Text = "Select All";
+            this.menuSelectAll.Click += new System.EventHandler(this.menuSelectAll_Click);
+            // 
+            // menuUnselect
+            // 
+            this.menuUnselect.Name = "menuUnselect";
+            this.menuUnselect.Size = new System.Drawing.Size(136, 22);
+            this.menuUnselect.Text = "Unselect";
+            this.menuUnselect.Click += new System.EventHandler(this.menuUnselect_Click);
+            // 
+            // menuUnselectAll
+            // 
+            this.menuUnselectAll.Name = "menuUnselectAll";
+            this.menuUnselectAll.Size = new System.Drawing.Size(136, 22);
+            this.menuUnselectAll.Text = "Unselect All";
+            this.menuUnselectAll.Click += new System.EventHandler(this.menuUnselectAll_Click);
+            // 
+            // grpbxPostInformation
+            // 
+            this.grpbxPostInformation.Controls.Add(this.dtp);
+            this.grpbxPostInformation.Controls.Add(this.lblPublishDate);
+            this.grpbxPostInformation.Controls.Add(this.cmbbxPing);
+            this.grpbxPostInformation.Controls.Add(this.lblTag);
+            this.grpbxPostInformation.Controls.Add(this.txtTag);
+            this.grpbxPostInformation.Controls.Add(this.txtCategory);
+            this.grpbxPostInformation.Controls.Add(this.lblPing);
+            this.grpbxPostInformation.Controls.Add(this.lblCategory);
+            this.grpbxPostInformation.Controls.Add(this.cmbbxComment);
+            this.grpbxPostInformation.Controls.Add(this.lblComment);
+            this.grpbxPostInformation.Controls.Add(this.txtContent);
+            this.grpbxPostInformation.Controls.Add(this.txtTitle);
+            this.grpbxPostInformation.Controls.Add(this.lblContent);
+            this.grpbxPostInformation.Controls.Add(this.lblTitle);
+            this.grpbxPostInformation.Location = new System.Drawing.Point(525, 10);
+            this.grpbxPostInformation.Name = "grpbxPostInformation";
+            this.grpbxPostInformation.Size = new System.Drawing.Size(486, 430);
+            this.grpbxPostInformation.TabIndex = 1;
+            this.grpbxPostInformation.TabStop = false;
+            this.grpbxPostInformation.Text = "Post Information";
+            // 
+            // dtp
+            // 
+            this.dtp.CustomFormat = "dd.MM.yyyy hh:mm";
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp.Location = new System.Drawing.Point(83, 295);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(386, 20);
+            this.dtp.TabIndex = 18;
+            // 
+            // lblPublishDate
+            // 
+            this.lblPublishDate.AutoSize = true;
+            this.lblPublishDate.Location = new System.Drawing.Point(6, 301);
+            this.lblPublishDate.Name = "lblPublishDate";
+            this.lblPublishDate.Size = new System.Drawing.Size(70, 13);
+            this.lblPublishDate.TabIndex = 17;
+            this.lblPublishDate.Text = "Publish Date:";
+            // 
+            // cmbbxPing
+            // 
+            this.cmbbxPing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbxPing.FormattingEnabled = true;
+            this.cmbbxPing.Items.AddRange(new object[] {
+            "Open",
+            "Closed"});
+            this.cmbbxPing.Location = new System.Drawing.Point(83, 321);
+            this.cmbbxPing.Name = "cmbbxPing";
+            this.cmbbxPing.Size = new System.Drawing.Size(386, 21);
+            this.cmbbxPing.TabIndex = 16;
+            // 
+            // lblTag
+            // 
+            this.lblTag.AutoSize = true;
+            this.lblTag.Location = new System.Drawing.Point(7, 404);
+            this.lblTag.Name = "lblTag";
+            this.lblTag.Size = new System.Drawing.Size(29, 13);
+            this.lblTag.TabIndex = 6;
+            this.lblTag.Text = "Tag:";
+            // 
+            // txtTag
+            // 
+            this.txtTag.Location = new System.Drawing.Point(83, 401);
+            this.txtTag.Name = "txtTag";
+            this.txtTag.Size = new System.Drawing.Size(386, 20);
+            this.txtTag.TabIndex = 5;
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.Location = new System.Drawing.Point(83, 375);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(386, 20);
+            this.txtCategory.TabIndex = 4;
+            // 
+            // lblPing
+            // 
+            this.lblPing.AutoSize = true;
+            this.lblPing.Location = new System.Drawing.Point(7, 324);
+            this.lblPing.Name = "lblPing";
+            this.lblPing.Size = new System.Drawing.Size(31, 13);
+            this.lblPing.TabIndex = 15;
+            this.lblPing.Text = "Ping:";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(7, 378);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(52, 13);
+            this.lblCategory.TabIndex = 3;
+            this.lblCategory.Text = "Category:";
+            // 
+            // cmbbxComment
+            // 
+            this.cmbbxComment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbxComment.FormattingEnabled = true;
+            this.cmbbxComment.Items.AddRange(new object[] {
+            "Open",
+            "Closed"});
+            this.cmbbxComment.Location = new System.Drawing.Point(83, 348);
+            this.cmbbxComment.Name = "cmbbxComment";
+            this.cmbbxComment.Size = new System.Drawing.Size(386, 21);
+            this.cmbbxComment.TabIndex = 14;
+            // 
+            // lblComment
+            // 
+            this.lblComment.AutoSize = true;
+            this.lblComment.Location = new System.Drawing.Point(7, 351);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(54, 13);
+            this.lblComment.TabIndex = 13;
+            this.lblComment.Text = "Comment:";
+            // 
+            // txtContent
+            // 
+            this.txtContent.Location = new System.Drawing.Point(83, 45);
+            this.txtContent.Multiline = true;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtContent.Size = new System.Drawing.Size(386, 244);
+            this.txtContent.TabIndex = 2;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(83, 19);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(386, 20);
+            this.txtTitle.TabIndex = 2;
+            // 
+            // lblContent
+            // 
+            this.lblContent.AutoSize = true;
+            this.lblContent.Location = new System.Drawing.Point(7, 48);
+            this.lblContent.Name = "lblContent";
+            this.lblContent.Size = new System.Drawing.Size(47, 13);
+            this.lblContent.TabIndex = 1;
+            this.lblContent.Text = "Content:";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(7, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(30, 13);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Title:";
+            // 
+            // chcbxAgreement
+            // 
+            this.chcbxAgreement.AutoSize = true;
+            this.chcbxAgreement.Location = new System.Drawing.Point(608, 448);
+            this.chcbxAgreement.Name = "chcbxAgreement";
+            this.chcbxAgreement.Size = new System.Drawing.Size(303, 17);
+            this.chcbxAgreement.TabIndex = 5;
+            this.chcbxAgreement.Text = "I checked the wordpress and post information. (Necessary)";
+            this.chcbxAgreement.UseVisualStyleBackColor = true;
+            this.chcbxAgreement.CheckedChanged += new System.EventHandler(this.chcbxAgreement_CheckedChanged);
+            // 
+            // btnPostBrowse
+            // 
+            this.btnPostBrowse.Image = global::Wordpress_Post.Properties.Resources.browse_button;
+            this.btnPostBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPostBrowse.Location = new System.Drawing.Point(608, 471);
+            this.btnPostBrowse.Name = "btnPostBrowse";
+            this.btnPostBrowse.Size = new System.Drawing.Size(125, 43);
+            this.btnPostBrowse.TabIndex = 4;
+            this.btnPostBrowse.Text = "Browse";
+            this.btnPostBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPostBrowse.UseVisualStyleBackColor = true;
+            this.btnPostBrowse.Click += new System.EventHandler(this.btnPostBrowse_Click);
+            // 
+            // btnSend
+            // 
+            this.btnSend.Enabled = false;
+            this.btnSend.Image = global::Wordpress_Post.Properties.Resources.send_button;
+            this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSend.Location = new System.Drawing.Point(869, 471);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(125, 43);
+            this.btnSend.TabIndex = 1;
+            this.btnSend.Text = "Send";
+            this.btnSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Image = global::Wordpress_Post.Properties.Resources.clear_button;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(739, 471);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(125, 43);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Clear";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // grpbxReport
             // 
             this.grpbxReport.Controls.Add(this.grpbxReportOptions);
@@ -448,248 +754,6 @@
             this.prgbr.Name = "prgbr";
             this.prgbr.Size = new System.Drawing.Size(438, 43);
             this.prgbr.TabIndex = 0;
-            // 
-            // grpbxSendPost
-            // 
-            this.grpbxSendPost.Controls.Add(this.grpbxWordpressInformationSendPost);
-            this.grpbxSendPost.Controls.Add(this.grpbxPostInformation);
-            this.grpbxSendPost.Controls.Add(this.chcbxAgreement);
-            this.grpbxSendPost.Controls.Add(this.btnPostBrowse);
-            this.grpbxSendPost.Controls.Add(this.btnSend);
-            this.grpbxSendPost.Controls.Add(this.btnClear);
-            this.grpbxSendPost.Location = new System.Drawing.Point(7, 9);
-            this.grpbxSendPost.Name = "grpbxSendPost";
-            this.grpbxSendPost.Size = new System.Drawing.Size(1017, 523);
-            this.grpbxSendPost.TabIndex = 16;
-            this.grpbxSendPost.TabStop = false;
-            this.grpbxSendPost.Visible = false;
-            // 
-            // grpbxWordpressInformationSendPost
-            // 
-            this.grpbxWordpressInformationSendPost.Controls.Add(this.dgvWordpressInformationResult);
-            this.grpbxWordpressInformationSendPost.Location = new System.Drawing.Point(6, 10);
-            this.grpbxWordpressInformationSendPost.Name = "grpbxWordpressInformationSendPost";
-            this.grpbxWordpressInformationSendPost.Size = new System.Drawing.Size(513, 507);
-            this.grpbxWordpressInformationSendPost.TabIndex = 3;
-            this.grpbxWordpressInformationSendPost.TabStop = false;
-            this.grpbxWordpressInformationSendPost.Text = "Wordpress Information";
-            // 
-            // dgvWordpressInformationResult
-            // 
-            this.dgvWordpressInformationResult.AllowUserToAddRows = false;
-            this.dgvWordpressInformationResult.AllowUserToDeleteRows = false;
-            this.dgvWordpressInformationResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvWordpressInformationResult.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvWordpressInformationResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvWordpressInformationResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWordpressInformationResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvSendPosttxtInclude,
-            this.dgvSendPosttxtURL});
-            this.dgvWordpressInformationResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvWordpressInformationResult.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvWordpressInformationResult.Location = new System.Drawing.Point(3, 16);
-            this.dgvWordpressInformationResult.Name = "dgvWordpressInformationResult";
-            this.dgvWordpressInformationResult.ReadOnly = true;
-            this.dgvWordpressInformationResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWordpressInformationResult.Size = new System.Drawing.Size(507, 488);
-            this.dgvWordpressInformationResult.TabIndex = 0;
-            // 
-            // dgvSendPosttxtInclude
-            // 
-            this.dgvSendPosttxtInclude.FillWeight = 15.22843F;
-            this.dgvSendPosttxtInclude.HeaderText = "#";
-            this.dgvSendPosttxtInclude.Name = "dgvSendPosttxtInclude";
-            this.dgvSendPosttxtInclude.ReadOnly = true;
-            this.dgvSendPosttxtInclude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dgvSendPosttxtURL
-            // 
-            this.dgvSendPosttxtURL.FillWeight = 142.3858F;
-            this.dgvSendPosttxtURL.HeaderText = "URL";
-            this.dgvSendPosttxtURL.Name = "dgvSendPosttxtURL";
-            this.dgvSendPosttxtURL.ReadOnly = true;
-            // 
-            // grpbxPostInformation
-            // 
-            this.grpbxPostInformation.Controls.Add(this.dtp);
-            this.grpbxPostInformation.Controls.Add(this.lblPublishDate);
-            this.grpbxPostInformation.Controls.Add(this.cmbbxPing);
-            this.grpbxPostInformation.Controls.Add(this.lblTag);
-            this.grpbxPostInformation.Controls.Add(this.txtTag);
-            this.grpbxPostInformation.Controls.Add(this.txtCategory);
-            this.grpbxPostInformation.Controls.Add(this.lblPing);
-            this.grpbxPostInformation.Controls.Add(this.lblCategory);
-            this.grpbxPostInformation.Controls.Add(this.cmbbxComment);
-            this.grpbxPostInformation.Controls.Add(this.lblComment);
-            this.grpbxPostInformation.Controls.Add(this.txtContent);
-            this.grpbxPostInformation.Controls.Add(this.txtTitle);
-            this.grpbxPostInformation.Controls.Add(this.lblContent);
-            this.grpbxPostInformation.Controls.Add(this.lblTitle);
-            this.grpbxPostInformation.Location = new System.Drawing.Point(525, 10);
-            this.grpbxPostInformation.Name = "grpbxPostInformation";
-            this.grpbxPostInformation.Size = new System.Drawing.Size(486, 430);
-            this.grpbxPostInformation.TabIndex = 1;
-            this.grpbxPostInformation.TabStop = false;
-            this.grpbxPostInformation.Text = "Post Information";
-            // 
-            // lblTag
-            // 
-            this.lblTag.AutoSize = true;
-            this.lblTag.Location = new System.Drawing.Point(7, 404);
-            this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(29, 13);
-            this.lblTag.TabIndex = 6;
-            this.lblTag.Text = "Tag:";
-            // 
-            // txtTag
-            // 
-            this.txtTag.Location = new System.Drawing.Point(83, 401);
-            this.txtTag.Name = "txtTag";
-            this.txtTag.Size = new System.Drawing.Size(386, 20);
-            this.txtTag.TabIndex = 5;
-            // 
-            // cmbbxPing
-            // 
-            this.cmbbxPing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbbxPing.FormattingEnabled = true;
-            this.cmbbxPing.Items.AddRange(new object[] {
-            "Open",
-            "Closed"});
-            this.cmbbxPing.Location = new System.Drawing.Point(83, 321);
-            this.cmbbxPing.Name = "cmbbxPing";
-            this.cmbbxPing.Size = new System.Drawing.Size(386, 21);
-            this.cmbbxPing.TabIndex = 16;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Location = new System.Drawing.Point(83, 375);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(386, 20);
-            this.txtCategory.TabIndex = 4;
-            // 
-            // lblPing
-            // 
-            this.lblPing.AutoSize = true;
-            this.lblPing.Location = new System.Drawing.Point(7, 324);
-            this.lblPing.Name = "lblPing";
-            this.lblPing.Size = new System.Drawing.Size(31, 13);
-            this.lblPing.TabIndex = 15;
-            this.lblPing.Text = "Ping:";
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(7, 378);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(52, 13);
-            this.lblCategory.TabIndex = 3;
-            this.lblCategory.Text = "Category:";
-            // 
-            // cmbbxComment
-            // 
-            this.cmbbxComment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbbxComment.FormattingEnabled = true;
-            this.cmbbxComment.Items.AddRange(new object[] {
-            "Open",
-            "Closed"});
-            this.cmbbxComment.Location = new System.Drawing.Point(83, 348);
-            this.cmbbxComment.Name = "cmbbxComment";
-            this.cmbbxComment.Size = new System.Drawing.Size(386, 21);
-            this.cmbbxComment.TabIndex = 14;
-            // 
-            // lblComment
-            // 
-            this.lblComment.AutoSize = true;
-            this.lblComment.Location = new System.Drawing.Point(7, 351);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(54, 13);
-            this.lblComment.TabIndex = 13;
-            this.lblComment.Text = "Comment:";
-            // 
-            // txtContent
-            // 
-            this.txtContent.Location = new System.Drawing.Point(83, 45);
-            this.txtContent.Multiline = true;
-            this.txtContent.Name = "txtContent";
-            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtContent.Size = new System.Drawing.Size(386, 244);
-            this.txtContent.TabIndex = 2;
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(83, 19);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(386, 20);
-            this.txtTitle.TabIndex = 2;
-            // 
-            // lblContent
-            // 
-            this.lblContent.AutoSize = true;
-            this.lblContent.Location = new System.Drawing.Point(7, 48);
-            this.lblContent.Name = "lblContent";
-            this.lblContent.Size = new System.Drawing.Size(47, 13);
-            this.lblContent.TabIndex = 1;
-            this.lblContent.Text = "Content:";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(7, 22);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(30, 13);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Title:";
-            // 
-            // chcbxAgreement
-            // 
-            this.chcbxAgreement.AutoSize = true;
-            this.chcbxAgreement.Location = new System.Drawing.Point(608, 448);
-            this.chcbxAgreement.Name = "chcbxAgreement";
-            this.chcbxAgreement.Size = new System.Drawing.Size(303, 17);
-            this.chcbxAgreement.TabIndex = 5;
-            this.chcbxAgreement.Text = "I checked the wordpress and post information. (Necessary)";
-            this.chcbxAgreement.UseVisualStyleBackColor = true;
-            this.chcbxAgreement.CheckedChanged += new System.EventHandler(this.chcbxAgreement_CheckedChanged);
-            // 
-            // btnPostBrowse
-            // 
-            this.btnPostBrowse.Image = global::Wordpress_Post.Properties.Resources.browse_button;
-            this.btnPostBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPostBrowse.Location = new System.Drawing.Point(608, 471);
-            this.btnPostBrowse.Name = "btnPostBrowse";
-            this.btnPostBrowse.Size = new System.Drawing.Size(125, 43);
-            this.btnPostBrowse.TabIndex = 4;
-            this.btnPostBrowse.Text = "Browse";
-            this.btnPostBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPostBrowse.UseVisualStyleBackColor = true;
-            this.btnPostBrowse.Click += new System.EventHandler(this.btnPostBrowse_Click);
-            // 
-            // btnSend
-            // 
-            this.btnSend.Enabled = false;
-            this.btnSend.Image = global::Wordpress_Post.Properties.Resources.send_button;
-            this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSend.Location = new System.Drawing.Point(869, 471);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(125, 43);
-            this.btnSend.TabIndex = 1;
-            this.btnSend.Text = "Send";
-            this.btnSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Image = global::Wordpress_Post.Properties.Resources.clear_button;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(739, 471);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(125, 43);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.Text = "Clear";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // grpbxWordpressInformation
             // 
@@ -869,24 +933,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lblPublishDate
-            // 
-            this.lblPublishDate.AutoSize = true;
-            this.lblPublishDate.Location = new System.Drawing.Point(6, 301);
-            this.lblPublishDate.Name = "lblPublishDate";
-            this.lblPublishDate.Size = new System.Drawing.Size(70, 13);
-            this.lblPublishDate.TabIndex = 17;
-            this.lblPublishDate.Text = "Publish Date:";
-            // 
-            // dtp
-            // 
-            this.dtp.CustomFormat = "dd.MM.yyyy hh:mm";
-            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp.Location = new System.Drawing.Point(83, 295);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(386, 20);
-            this.dtp.TabIndex = 18;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -913,17 +959,18 @@
             this.grpbxApplicationInformation.ResumeLayout(false);
             this.grpbxApplicationInformation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbxAbout)).EndInit();
+            this.grpbxSendPost.ResumeLayout(false);
+            this.grpbxSendPost.PerformLayout();
+            this.grpbxWordpressInformationSendPost.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSendPost)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
+            this.grpbxPostInformation.ResumeLayout(false);
+            this.grpbxPostInformation.PerformLayout();
             this.grpbxReport.ResumeLayout(false);
             this.grpbxReportOptions.ResumeLayout(false);
             this.grpbxWordpressInformationResult.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
             this.grpbxProgress.ResumeLayout(false);
-            this.grpbxSendPost.ResumeLayout(false);
-            this.grpbxSendPost.PerformLayout();
-            this.grpbxWordpressInformationSendPost.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationResult)).EndInit();
-            this.grpbxPostInformation.ResumeLayout(false);
-            this.grpbxPostInformation.PerformLayout();
             this.grpbxWordpressInformation.ResumeLayout(false);
             this.grpbxWordpressInformationSettings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWordpressInformationSettings)).EndInit();
@@ -965,7 +1012,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox grpbxSendPost;
         private System.Windows.Forms.GroupBox grpbxWordpressInformationSendPost;
-        private System.Windows.Forms.DataGridView dgvWordpressInformationResult;
+        private System.Windows.Forms.DataGridView dgvSendPost;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSendPosttxtInclude;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSendPosttxtURL;
         private System.Windows.Forms.GroupBox grpbxPostInformation;
@@ -1006,6 +1053,11 @@
         private System.Windows.Forms.Button btnGNULicence;
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.Label lblPublishDate;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuSelect;
+        private System.Windows.Forms.ToolStripMenuItem menuSelectAll;
+        private System.Windows.Forms.ToolStripMenuItem menuUnselect;
+        private System.Windows.Forms.ToolStripMenuItem menuUnselectAll;
     }
 }
 

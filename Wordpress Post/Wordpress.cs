@@ -11,17 +11,17 @@ namespace Wordpress_Post
 {
     class Wordpress
     {
-        private XmlRpcClientProtocol clientProtocol;
-        private IcreatePost _post;
-        private postInfo _blogPost;
+        //public XmlRpcClientProtocol clientProtocol;
+        //public IcreatePost _post;
+        public postInfo _blogPost;
 
-        private struct customField
+        public struct customField
         {
             public string key;
             public string value;
         }
 
-        private struct postInfo
+        public struct postInfo
         {
             public string[] categories;
             public string title;
@@ -32,7 +32,7 @@ namespace Wordpress_Post
             public string mt_allow_pings;
         }
 
-        private interface IcreatePost
+        public interface IcreatePost
         {
             [XmlRpcMethod("metaWeblog.newPost")]
             string NewPost(int blogId, string strUserName, string strPassword, postInfo content, int publish);
@@ -52,7 +52,8 @@ namespace Wordpress_Post
 
         public string sendPost(string _url, string _username, string _password)
         {
-             _post = (IcreatePost)XmlRpcProxyGen.Create(typeof(IcreatePost));
+            XmlRpcClientProtocol clientProtocol;
+            IcreatePost _post = (IcreatePost)XmlRpcProxyGen.Create(typeof(IcreatePost));
             clientProtocol = (XmlRpcClientProtocol)_post;
             clientProtocol.Url = "http://" + _url + "/xmlrpc.php";
             string _postID = "";

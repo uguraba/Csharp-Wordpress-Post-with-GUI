@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace Wordpress_Post
 {
@@ -72,6 +74,12 @@ namespace Wordpress_Post
             grpbxWordpressInformation.Visible = false;
             grpbxReport.Visible = false;
             grpbxSendPost.Visible = true;
+            foreach (DataGridViewRow _row in dgvWordpressInformationSettings.Rows)
+            {
+                dgvSendPost.Rows.Add();
+                dgvSendPost.Rows[dgvSendPost.RowCount - 1].Cells[0].Value = "In";
+                dgvSendPost.Rows[dgvSendPost.RowCount - 1].Cells[1].Value = _row.Cells["dgvSettingstxtURL"].Value;
+            }
         }
 
         private void menuReport_Click(object sender, EventArgs e)
@@ -213,7 +221,15 @@ namespace Wordpress_Post
 
         private void btnSendMail_Click(object sender, EventArgs e)
         {
-
+            string _mailBody = "";
+            foreach (DataGridViewRow _row in dgvResult.Rows)
+            {
+                string _url = _row.Cells["dgvResulttxtURL"].Value.ToString();
+                string _postUrl = _row.Cells["dgvResulttxtPostURL"].Value.ToString();
+                string _result = _row.Cells["dgvResulttxtResult"].Value.ToString();
+                _mailBody += _url + " " + _postUrl + " " + _result + "\n";
+            }
+            Mail.sendMail("ugur.aba@outlook.com", _mailBody);
         }
 
         private void btnGoogleDrive_Click(object sender, EventArgs e)
@@ -223,17 +239,45 @@ namespace Wordpress_Post
 
         private void btnGNULicence_Click(object sender, EventArgs e)
         {
-
+            openWebsite("http://www.gnu.org/licenses/gpl-3.0.en.html");
         }
 
         private void btnGithub_Click(object sender, EventArgs e)
         {
-
+            openWebsite("http://www.github.com/uguraba");
         }
 
         private void btnTwitter_Click(object sender, EventArgs e)
         {
+            openWebsite("http://www.twitter.com/uguraba");
+        }
 
+        private void openWebsite(string _url)
+        {
+            RegistryKey registryKey = Registry.ClassesRoot.OpenSubKey(@"http\shell\open\command", false);
+            Process.Start(((string)registryKey.GetValue(null, null)).Split('"')[1], _url);
+        }
+
+        private void menuSelect_Click(object sender, EventArgs e)
+        {
+            dgvSendPost.Rows[dgvSendPost.SelectedRows[0].Index].Cells[0].Value = "In";
+        }
+
+        private void menuSelectAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvSendPost.RowCount; i++)
+                dgvSendPost.Rows[i].Cells[0].Value = "In";
+        }
+
+        private void menuUnselect_Click(object sender, EventArgs e)
+        {
+            dgvSendPost.Rows[dgvSendPost.SelectedRows[0].Index].Cells[0].Value = "Out";
+        }
+
+        private void menuUnselectAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvSendPost.RowCount; i++)
+                dgvSendPost.Rows[i].Cells[0].Value = "Out";
         }
     }
 }
