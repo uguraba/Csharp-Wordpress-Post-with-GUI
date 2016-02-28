@@ -40,5 +40,10 @@
 
 # 5. Licence
 
-GNU General Public Licence v3.0
-http://www.gnu.org/licenses/gpl-3.0.en.html
+  GNU General Public Licence v3.0
+  http://www.gnu.org/licenses/gpl-3.0.en.html
+
+# 6. Changelog
+
+  v0.2 - Added multiple send function
+  v0.1 - Initial Commit
