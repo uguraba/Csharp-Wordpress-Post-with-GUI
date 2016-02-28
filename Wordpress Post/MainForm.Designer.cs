@@ -458,8 +458,8 @@
             this.cmbbxPing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbbxPing.FormattingEnabled = true;
             this.cmbbxPing.Items.AddRange(new object[] {
-            "Open",
-            "Closed"});
+            "open",
+            "closed"});
             this.cmbbxPing.Location = new System.Drawing.Point(83, 321);
             this.cmbbxPing.Name = "cmbbxPing";
             this.cmbbxPing.Size = new System.Drawing.Size(386, 21);
@@ -511,8 +511,8 @@
             this.cmbbxComment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbbxComment.FormattingEnabled = true;
             this.cmbbxComment.Items.AddRange(new object[] {
-            "Open",
-            "Closed"});
+            "open",
+            "closed"});
             this.cmbbxComment.Location = new System.Drawing.Point(83, 348);
             this.cmbbxComment.Name = "cmbbxComment";
             this.cmbbxComment.Size = new System.Drawing.Size(386, 21);

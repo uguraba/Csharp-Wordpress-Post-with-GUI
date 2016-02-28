@@ -1,6 +1,11 @@
-﻿using System;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Net;
+
+/*
+    DateTime: 27.02.2016 22:45 GMT+2
+    Github: https://github.com/uguraba
+    Twitter: https://twitter.com/uguraba
+*/
 
 namespace Wordpress_Post
 {
@@ -8,19 +13,19 @@ namespace Wordpress_Post
     {
         public static void sendMail(string _mailTo, string _mailBody)
         {
-            SmtpClient sc = new SmtpClient();
-            sc.Port = 587;
-            sc.Host = "smtp.gmail.com";
-            sc.EnableSsl = true;
-            sc.Credentials = new NetworkCredential("ugur.aba@gmail.com", "BQJ8QTRJ7QRRW9VVHP9H");
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("eposta@gmail.com", "C# Wordpress Post");
-            mail.To.Add(_mailTo);
-            mail.Subject = "C# Wordpress Post";
-            mail.IsBodyHtml = true;
-            mail.Body = _mailBody;
+            MailMessage _mail = new MailMessage();
+            _mail.From = new MailAddress("ugur.aba@gmail.com", "C# Wordpress Post");
+            _mail.To.Add(_mailTo);
+            _mail.Subject = "C# Wordpress Post";
+            _mail.IsBodyHtml = true;
+            _mail.Body = _mailBody;
             //mail.Attachments.Add(new Attachment(@"C:\Rapor.xlsx"));
-            sc.Send(mail);
+            SmtpClient _smtpClient = new SmtpClient();
+            _smtpClient.Port = 587;
+            _smtpClient.Host = "smtp.gmail.com";
+            _smtpClient.EnableSsl = true;
+            _smtpClient.Credentials = new NetworkCredential("ugur.aba@gmail.com", "BQJ8QTRJ7QRRW9VVHP9H");
+            _smtpClient.Send(_mail);
         }
     }
 }
