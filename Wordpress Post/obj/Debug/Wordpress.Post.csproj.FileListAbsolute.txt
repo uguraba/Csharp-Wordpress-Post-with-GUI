@@ -1,0 +1,10 @@
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\bin\Debug\Wordpress Post.exe.config
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\bin\Debug\Wordpress Post.exe
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\bin\Debug\Wordpress Post.pdb
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress Post.csprojResolveAssemblyReference.cache
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress_Post.frmMain.resources
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress_Post.Properties.Resources.resources
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress Post.csproj.GenerateResource.Cache
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress Post.exe
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\obj\Debug\Wordpress Post.pdb
+C:\Users\ugura\onedrive\belgeler\visual studio 2015\Projects\Wordpress Post\Wordpress Post\bin\Debug\CookComputing.XmlRpcV2.dll
